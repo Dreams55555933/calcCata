@@ -1,15 +1,110 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Objects;
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class Main {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Введите операцию:");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine().strip();
+        System.out.println(calc(input));
     }
+
+    public static String calc(String input) throws Exception {
+        char[] chars = input.toCharArray();
+        int result = 0;
+        String[] nums = input.split("[+\\-*/]");
+        boolean isRoman = false;
+        int num1, num2;
+        if(checkRoman(nums[0])&checkRoman(nums[1])){
+            num1 = convertRomanToInt(nums[0]);
+            num2 = convertRomanToInt(nums[1]);
+            isRoman = true;
+        }else if((!checkRoman(nums[0])&checkRoman(nums[1])||(checkRoman(nums[0])&!checkRoman(nums[1])))){
+            throw new Exception("Нельзя складывать обычные числа с римскими");
+        }else{
+            num1 = Integer.parseInt(nums[0]);
+            num2 = Integer.parseInt(nums[1]);
+        };
+
+        if (nums.length != 2){
+            throw new Exception("Чисел должно быть не больше двух!");
+        }
+        if (num1 > 10 & num2 > 10) {
+            throw new Exception("Числа должны быть меньше или равно 10!");
+        }
+        for (char ch : chars) {
+
+            if (ch == '+') {
+                result = num1 + num2;
+            }
+            else if (ch == '-') {
+                result = num1 - num2;
+            }
+            else if (ch == '*') {
+                result = num1 * num2;
+            }
+            else if (ch == '/') {
+                result = num1 / num2;
+            }
+            else {
+                throw new Exception("Не возможно выполнить математическое действие!");
+            }
+        }
+        if (isRoman){
+            return convertIntToRoman(result);
+        }else {
+            return Integer.toString(result);
+        }
+
+    }
+    private static int convertRomanToInt(String text){
+        String [] roman ={"O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+                "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+                "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
+                "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
+                "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
+                "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
+                "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"};
+        int num = 0;
+        for (String s:roman) {
+            if (Objects.equals(text, s)) {
+                break;
+            }
+            num++;
+        }
+        return  num;
+    }
+    private static String convertIntToRoman(int num) throws Exception {
+        String [] roman ={
+                "O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+                "XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+                "XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
+                "LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
+                "LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
+                "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
+                "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"
+        };
+        String result = "";
+        if (num<=0){
+            throw new Exception("Результат в римских числах не должен быть отрицательным!");
+        }
+        result = roman[num];
+        return  result;
+    }
+    private static boolean checkRoman(String text){
+        String [] roman ={
+                "O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
+        boolean resultIsCheck = false;
+        for (int i = 0; i < roman.length; i++) {
+
+        }
+        for (String s : roman) {
+            if (s.equals(text)) {
+                resultIsCheck = true;
+                break;
+            }
+        }
+        return resultIsCheck;
+    }
+
 }
