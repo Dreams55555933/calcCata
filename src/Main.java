@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Введите операцию:");
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine().strip();
+        String input = scanner.nextLine();
         System.out.println(calc(input));
     }
 
@@ -46,9 +46,7 @@ public class Main {
             else if (ch == '/') {
                 result = num1 / num2;
             }
-            else {
-                throw new Exception("Не возможно выполнить математическое действие!");
-            }
+
         }
         if (isRoman){
             return convertIntToRoman(result);
