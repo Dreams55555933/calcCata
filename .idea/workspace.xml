@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ad3461f-03e1-4e97-8867-8f01859d10a8" name="Changes" comment="" />
+    <list default="true" id="1bae7460-3917-406c-91e5-bf7152155e64" name="Changes" comment="Исправил" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,9 +14,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
+  "associatedIndex": 6
 }]]></component>
-  <component name="ProjectId" id="2biBpdBYzhfXWCoai37tZhbycX8" />
+  <component name="ProjectId" id="2bkzsF4u8wKpUOdw6kQTYdpIe8n" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,30 +24,51 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "G:/ProjectLearnJava/1/calcCata/src/Main.java"
+    "onboarding.tips.debug.path": "G:/Project/Java/CataAcademy/Calc/Calc/src/Main.java"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3ad3461f-03e1-4e97-8867-8f01859d10a8" name="Changes" comment="" />
-      <created>1706688207368</created>
+      <changelist id="1bae7460-3917-406c-91e5-bf7152155e64" name="Changes" comment="" />
+      <created>1706774073388</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1706688207368</updated>
+      <updated>1706774073388</updated>
     </task>
+    <task id="LOCAL-00001" summary="Исправил">
+      <option name="closed" value="true" />
+      <created>1706774303733</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706774303734</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Исправил" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправил" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>11</line>
+          <line>14</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
