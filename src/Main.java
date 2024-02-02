@@ -6,7 +6,11 @@ public class Main {
         System.out.println("Введите операцию:");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        System.out.println(calc(input));
+        try {
+            System.out.println(calc(input));
+        }catch (RuntimeException ex){
+            throw new Exception("т.к. строка не является математической операцией");
+        }
     }
 
     public static String calc(String input) throws Exception {
@@ -20,18 +24,19 @@ public class Main {
             num2 = convertRomanToInt(nums[1]);
             isRoman = true;
         }else if((!checkRoman(nums[0])&checkRoman(nums[1])||(checkRoman(nums[0])&!checkRoman(nums[1])))){
-            throw new Exception("Нельзя складывать обычные числа с римскими");
+            throw new Exception("т.к. используются одновременно разные системы счисления");
         }else{
             num1 = Integer.parseInt(nums[0]);
             num2 = Integer.parseInt(nums[1]);
         };
 
         if (nums.length != 2){
-            throw new Exception("Чисел должно быть не больше двух!");
+            throw new Exception("т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }
-        if (num1 > 10 & num2 > 10) {
-            throw new Exception("Числа должны быть меньше или равно 10!");
+        if (num1 > 10 || num2 > 10) {
+            throw new Exception("т.к. числа должны быть меньше или равно 10!");
         }
+        Boolean markCheck = false;
         for (char ch : chars) {
 
             if (ch == '+') {
@@ -84,7 +89,7 @@ public class Main {
         };
         String result = "";
         if (num<=0){
-            throw new Exception("Результат в римских числах не должен быть отрицательным!");
+            throw new Exception("т.к. используются одновременно разные системы счисления");
         }
         result = roman[num];
         return  result;
@@ -93,9 +98,6 @@ public class Main {
         String [] roman ={
                 "O", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
         boolean resultIsCheck = false;
-        for (int i = 0; i < roman.length; i++) {
-
-        }
         for (String s : roman) {
             if (s.equals(text)) {
                 resultIsCheck = true;
