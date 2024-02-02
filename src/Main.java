@@ -105,5 +105,4 @@ public class Main {
         }
         return resultIsCheck;
     }
-
 }
