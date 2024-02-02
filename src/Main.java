@@ -28,7 +28,7 @@ public class Main {
         }else{
             num1 = Integer.parseInt(nums[0]);
             num2 = Integer.parseInt(nums[1]);
-        };
+        }
 
         if (nums.length != 2){
             throw new Exception("т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
@@ -36,7 +36,6 @@ public class Main {
         if (num1 > 10 || num2 > 10) {
             throw new Exception("т.к. числа должны быть меньше или равно 10!");
         }
-        Boolean markCheck = false;
         for (char ch : chars) {
 
             if (ch == '+') {
@@ -87,9 +86,9 @@ public class Main {
                 "LXXXI", "LXXXII", "LXXXIII", "LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
                 "XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"
         };
-        String result = "";
+        String result;
         if (num<=0){
-            throw new Exception("т.к. используются одновременно разные системы счисления");
+            throw new Exception("т.к. в римской системе нет отрицательных чисел и нуля");
         }
         result = roman[num];
         return  result;
